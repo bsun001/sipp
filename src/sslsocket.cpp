@@ -204,6 +204,9 @@ static SSL_CTX* instantiate_ssl_context(const char* context_name)
 #if OPENSSL_VERSION_NUMBER >= 0x10100000  /* >= 1.1 */
     SSL_CTX_set_min_proto_version(ssl_ctx, TLS1_VERSION);
 #endif
+
+	SSL_CTX_clear_options(ssl_ctx, SSL_OP_NO_COMPRESSION);
+
     return ssl_ctx;
 }
 
